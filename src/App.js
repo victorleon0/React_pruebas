@@ -9,9 +9,14 @@ import MovieContainer from './components/Movies/MovieContainer';
 import Book from './components/Book/Book';
 import BookForm from './components/Book/BookForm';
 import { useState } from 'react';
+import CharacterForm from './components/HpotterForm/CharacterForm.jsx'
 
 
 function App() {
+
+  const getCharacter = (newCharacter) => {  //Definimos la funcion para llamar al hijo
+      console.log ("En App New Character", newCharacter);
+  }
 
   const movies = [
     {
@@ -37,12 +42,12 @@ function App() {
     setInfo([...info, newInfo]);
   }
   
-  let name = 'pepe';
-  let surname = 'perez';
+  //let name = 'pepe';
+  //let surname = 'perez';
 
-  let myArray = ["pera", "naranja", "melon"];
+  //let myArray = ["pera", "naranja", "melon"];
 
-  let myArray2 = [32, 43, 12, 123];
+  //let myArray2 = [32, 43, 12, 123];
 
   const books = [
     {
@@ -70,14 +75,17 @@ function App() {
     setBookInfo([...bookInfo, newBook]);
   }
 
-  const sayHello = () => {
-    console.log("hellooooo");
-  }
+  //const sayHello = () => {
+    //console.log("hellooooo");
+  //}
 
 
 
   return (
     <div className="app">
+      <h1>Harry Potter Characters Creation</h1>
+      {/* Con esto llevamos los props a CharacterForm */}
+      <CharacterForm getCharacter={getCharacter}/>   
       <InputText/>
       <Header/>
         {info.length > 0 && info.map((contact) => {
